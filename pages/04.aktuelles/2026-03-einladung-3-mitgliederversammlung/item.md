@@ -1,6 +1,7 @@
 ---
-title: "Einladung zur 3. Mitgliederversammlung"
-date: "27-02-2026 20:05"
+title: 'Einladung zur 3. Mitgliederversammlung'
+date: '27-02-2026 20:05'
+teaser: 'Vorschaue des Inhaltes der Nachricht kann hier manuell festgelegt werden'
 ---
 
 Wir laden alle Mitglieder herzlich zur **3. Mitgliederversammlung** ein:
