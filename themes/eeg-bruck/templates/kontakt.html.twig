@@ -9,27 +9,27 @@
 <section class="section" style="padding-top:0;"><div class="container">
   <div class="kontakt-grid">
     <div class="kontakt-info">
-      <h3>Ihre Ansprechpartner</h3>
+      <h3>{{ k.abschnitt_kontakte|default('Ihre Ansprechpartner') }}</h3>
       {% for c in k.kontakte %}
         <div class="kontakt-item"><div class="kontakt-icon">👤</div><div><h4>{{ c.rolle }}</h4><p>{{ c.name }}</p></div></div>
         <div class="kontakt-item"><div class="kontakt-icon">📞</div><div><h4>Telefon</h4><p><a href="tel:{{ c.tel|replace({' ':''}) }}">{{ c.tel }}</a></p></div></div>
         <div class="kontakt-item"><div class="kontakt-icon">✉️</div><div><h4>E-Mail</h4><p><a href="mailto:{{ c.mail }}">{{ c.mail }}</a></p></div></div>
       {% endfor %}
-      <div class="kontakt-item"><div class="kontakt-icon">📍</div><div><h4>Region</h4><p>Bruck an der Glocknerstraße & Pinzgauer Zentralraum, Salzburg</p></div></div>
+      <div class="kontakt-item"><div class="kontakt-icon">📍</div><div><h4>Region</h4><p>{{ k.standort|default('') }}</p></div></div>
       {% if k.hinweis_netzgebiet %}
       <div style="margin-top:2rem;"><p style="font-size:.9rem;color:var(--color-text-muted);"><strong>Hinweis zum Netzgebiet:</strong> {{ k.hinweis_netzgebiet }}</p></div>
       {% endif %}
     </div>
     <div class="kontakt-form-wrap">
-      <h3 style="margin-bottom:1.5rem;">Nachricht senden</h3>
+      <h3 style="margin-bottom:1.5rem;">{{ k.abschnitt_formular|default('Nachricht senden') }}</h3>
       <form method="post" action="{{ page.url }}">
         {{ nonce_field('contact-form')|raw }}
-        <div class="form-group"><label for="name">Ihr Name *</label><input type="text" id="name" name="name" required placeholder="Max Mustermann"></div>
-        <div class="form-group"><label for="email">E-Mail-Adresse *</label><input type="email" id="email" name="email" required placeholder="max@beispiel.at"></div>
-        <div class="form-group"><label for="betreff">Betreff</label>
+        <div class="form-group"><label for="name">{{ k.formular.label_name|default('Ihr Name') }} *</label><input type="text" id="name" name="name" required placeholder="{{ k.formular.placeholder_name|default('Max Mustermann') }}"></div>
+        <div class="form-group"><label for="email">{{ k.formular.label_email|default('E-Mail-Adresse') }} *</label><input type="email" id="email" name="email" required placeholder="{{ k.formular.placeholder_email|default('max@beispiel.at') }}"></div>
+        <div class="form-group"><label for="betreff">{{ k.formular.label_betreff|default('Betreff') }}</label>
           <select id="betreff" name="betreff">{% for o in k.formular.betreff_optionen %}<option>{{ o }}</option>{% endfor %}</select>
         </div>
-        <div class="form-group"><label for="nachricht">Ihre Nachricht *</label><textarea id="nachricht" name="nachricht" required placeholder="Schreiben Sie uns …"></textarea></div>
+        <div class="form-group"><label for="nachricht">{{ k.formular.label_nachricht|default('Ihre Nachricht') }} *</label><textarea id="nachricht" name="nachricht" required placeholder="{{ k.formular.placeholder_nachricht|default('Schreiben Sie uns …') }}"></textarea></div>
         <button type="submit" class="btn btn-primary" style="width:100%;">Formular absenden</button>
       </form>
     </div>
