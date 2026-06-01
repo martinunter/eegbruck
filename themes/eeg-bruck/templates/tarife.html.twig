@@ -18,5 +18,5 @@
   {% if t.hinweis %}<p class="tarife-note">{{ t.hinweis }}</p>{% endif %}
 </div></section>
 
-<div class="content-section">{{ content }}</div>
+<div class="content-section">{{ content|raw }}</div>
 {% endblock %}

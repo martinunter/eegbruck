@@ -34,6 +34,6 @@
       </form>
     </div>
   </div>
-  {% if content %}<div style="max-width:820px;margin:3rem auto 0;color:var(--color-text-muted);">{{ content }}</div>{% endif %}
+  {% if content %}<div style="max-width:820px;margin:3rem auto 0;color:var(--color-text-muted);">{{ content|raw }}</div>{% endif %}
 </div></section>
 {% endblock %}
