@@ -1,0 +1,255 @@
+From e13de8e42cd91a59ffd801ea67b606e79ae97e8c Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Mon, 1 Jun 2026 18:03:18 +0000
+Subject: [PATCH] Fix contact form, counter animation, OG tags, footer nav,
+ news post, open items
+
+https://claude.ai/code/session_0126GY9y3piZtZMcdqzyqFg3
+---
+ README.md                                     | 59 ++++++++++++++++++-
+ config/site.yaml                              |  2 +-
+ .../01.mitgliederversammlung-2025/item.md     | 28 +++++++++
+ pages/05.kontakt/kontakt.md                   | 15 +++++
+ pages/06.anmelden/text.md                     | 16 +++--
+ themes/eeg-bruck/templates/home.html.twig     |  4 +-
+ themes/eeg-bruck/templates/kontakt.html.twig  |  1 +
+ .../templates/partials/base.html.twig         |  1 +
+ .../templates/partials/footer.html.twig       |  3 +-
+ 9 files changed, 116 insertions(+), 13 deletions(-)
+ create mode 100644 pages/04.aktuelles/01.mitgliederversammlung-2025/item.md
+
+diff --git a/README.md b/README.md
+index f44e638..2b26df9 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1,58 @@
+-# eegbruck
+\ No newline at end of file
++# EEG Bruck & Pinzgauer Zentralraum – Website
++
++Grav CMS, Theme `eeg-bruck`, Sprache Deutsch.
++
++---
++
++## Offene Punkte vor Live-Gang
++
++### Kritisch (rechtlich / funktional)
++
++- [ ] **Impressum vervollständigen** (`pages/07.impressum/text.md`)
++  - ZVR-Zahl des Vereins eintragen
++  - Ladungsfähige Anschrift eintragen
++  - UID-Nummer eintragen (falls vorhanden)
++  - Datenschutzerklärung durch rechtlich geprüfte Version ersetzen (Platzhalter-Hinweis im Text)
++
++- [ ] **E-Mail-Zieladresse anpassen** (`pages/05.kontakt/kontakt.md`, Feld `form.process.email.to`)
++  - Aktuell: `eeg.bruck@gmail.com`
++  - Wird geändert, sobald Domäne beim neuen Hoster liegt
++
++- [ ] **SMTP konfigurieren** (`plugins/email/email.yaml`)
++  - Mailserver des neuen Hosters eintragen (Server, Port, Verschlüsselung, User, Passwort)
++  - Danach Kontaktformular testen und Mailzustellung prüfen
++
++### Inhalt
++
++- [ ] **Datenerhebungsblatt** als PDF bereitstellen
++  - Datei in `user/pages/06.anmelden/` ablegen
++  - Link in `pages/06.anmelden/text.md` auf die Datei setzen (z.B. `[Datenerhebungsblatt herunterladen →](datenerhebungsblatt.pdf)`)
++
++- [ ] **OG-Bild** für Social Sharing hinterlegen
++  - Bilddatei in `themes/eeg-bruck/images/` ablegen
++  - In `themes/eeg-bruck/templates/partials/base.html.twig` eintragen:
++    `<meta property="og:image" content="{{ url('theme://images/DATEINAME.jpg', true) }}">`
++
++### Optional / Pflege
++
++- [ ] Weitere News-Beiträge unter `pages/04.aktuelles/` anlegen
++- [ ] Tarife aktualisieren, sobald neue Beschlüsse vorliegen (`pages/03.aktuelle-tarife/tarife.md`)
++
++---
++
++## Inhaltspflege
++
++Alle Texte und Daten werden direkt in den Markdown-Dateien unter `pages/` gepflegt.
++Jede Seite hat YAML-Frontmatter für strukturierte Felder (Tarife, Team, FAQ usw.)
++und optionalen Markdown-Fließtext darunter.
++
++Seiten:
++| Ordner | URL | Inhalt |
++|---|---|---|
++| `01.home` | `/` | Hero, Zahlen, Leistungen, FAQ, Team, CTA |
++| `02.leistungen` | `/leistungen` | Leistungsbeschreibung |
++| `03.aktuelle-tarife` | `/aktuelle-tarife` | Tariftabelle |
++| `04.aktuelles` | `/aktuelles` | Blog/News (Unterseiten = Beiträge) |
++| `05.kontakt` | `/kontakt` | Kontaktformular + Ansprechpartner |
++| `06.anmelden` | `/anmelden` | Anmeldeprozess |
++| `07.impressum` | `/impressum` | Impressum & Datenschutz |
+diff --git a/config/site.yaml b/config/site.yaml
+index 2bc9268..f543edf 100644
+--- a/config/site.yaml
++++ b/config/site.yaml
+@@ -2,7 +2,7 @@ title: "EEG Bruck & Pinzgauer Zentralraum"
+ default_lang: de
+ author:
+     name: "EEG Bruck an der Glocknerstraße und Pinzgauer Zentralraum"
+-    email: ""
++    email: "eeg.bruck@gmail.com"
+ metadata:
+     description: "Die Erneuerbare-Energie-Gemeinschaft für Bruck an der Glocknerstraße und den Pinzgauer Zentralraum. Regionaler Ökostrom, faire Preise, keine Bindung."
+     keywords: "EEG, Energiegemeinschaft, Bruck, Pinzgau, Salzburg, erneuerbare Energie, Photovoltaik, Ökostrom"
+diff --git a/pages/04.aktuelles/01.mitgliederversammlung-2025/item.md b/pages/04.aktuelles/01.mitgliederversammlung-2025/item.md
+new file mode 100644
+index 0000000..f3df11a
+--- /dev/null
++++ b/pages/04.aktuelles/01.mitgliederversammlung-2025/item.md
+@@ -0,0 +1,28 @@
++---
++title: "2. Mitgliederversammlung 2025 – Tarife einstimmig beschlossen"
++date: 23-02-2025
++summary: "Am 23. Februar 2025 fand die zweite Mitgliederversammlung der EEG Bruck an der Glocknerstraße und Pinzgauer Zentralraum statt. Die aktuellen Energietarife für das Jahr 2025 wurden von allen anwesenden Mitgliedern einstimmig beschlossen."
++---
++
++## 2. Mitgliederversammlung 2025
++
++Am **23. Februar 2025** fand die zweite Mitgliederversammlung der EEG Bruck an der
++Glocknerstraße und Pinzgauer Zentralraum statt.
++
++### Tarife einstimmig beschlossen
++
++Die aktuellen Energietarife für das Jahr 2025 wurden von allen anwesenden Mitgliedern
++**einstimmig beschlossen**. Die Tarife gelten ab sofort für alle Mitglieder der
++Energiegemeinschaft. Details zu den aktuellen Tarifen finden Sie auf der
++[Tarifübersicht](/aktuelle-tarife).
++
++### Wachsende Gemeinschaft
++
++Die EEG verzeichnet weiterhin regen Zulauf: Mit über 80 Mitgliedern und mehr als 15
++Einspeisern aus Photovoltaik und Wasserkraft wächst die Gemeinschaft stetig.
++
++### Nächste Schritte
++
++Interessierte, die der EEG beitreten möchten, können sich jederzeit über das
++[Kontaktformular](/kontakt) oder direkt beim Vorstand melden. Der Beitritt ist kostenlos
++und jederzeit kündbar.
+diff --git a/pages/05.kontakt/kontakt.md b/pages/05.kontakt/kontakt.md
+index 6f822be..8ae59eb 100644
+--- a/pages/05.kontakt/kontakt.md
++++ b/pages/05.kontakt/kontakt.md
+@@ -36,6 +36,21 @@ formular:
+         - "Sonstiges"
+ 
+ hinweis_netzgebiet: "Die EEG steht allen Personen offen, die im Netzgebiet des Pinzgauer Zentralraums wohnhaft sind und über einen österreichischen Zählpunkt (Netzbetreiber Salzburg Netz) verfügen."
++
++# ── Grav Form Plugin Definition ──
++form:
++    name: contact-form
++    action: /kontakt
++    process:
++        email:
++            subject: "[EEG Bruck] Kontaktanfrage: {{ form.value.betreff }}"
++            body: "<p><strong>Von:</strong> {{ form.value.name }}<br><strong>E-Mail:</strong> {{ form.value.email }}<br><strong>Betreff:</strong> {{ form.value.betreff }}</p><p><strong>Nachricht:</strong><br>{{ form.value.nachricht|nl2br }}</p>"
++            from: eeg.bruck@gmail.com
++            from_name: "EEG Bruck Website"
++            to: eeg.bruck@gmail.com
++            reply_to: "{{ form.value.email }}"
++        message: "Vielen Dank! Wir werden uns so bald wie möglich bei Ihnen melden."
++        reset: true
+ ---
+ 
+ Haben Sie Fragen zur Mitgliedschaft, zur Einspeisung oder zu den Tarifen? Schreiben Sie
+diff --git a/pages/06.anmelden/text.md b/pages/06.anmelden/text.md
+index 6404cde..3daa97c 100644
+--- a/pages/06.anmelden/text.md
++++ b/pages/06.anmelden/text.md
+@@ -5,12 +5,10 @@ untertitel: "Unverbindlich abklären, ob ein Beitritt zur EEG für Sie Sinn mach
+ 
+ ## Anmelden leicht gemacht!
+ 
+-Wenn Sie gerne unverbindlich abklären möchten, ob der Beitritt zur EEG Sinn macht, füllen
+-Sie unser **Datenerhebungsblatt** aus und übermitteln es per E-Mail an
+-[eeg.bruck@gmail.com](mailto:eeg.bruck@gmail.com).
+-
+-Wir melden uns anschließend bei Ihnen, um alle weiteren Schritte zu besprechen. Sie
+-erreichen uns auch jederzeit telefonisch beim Vorstand.
++Wenn Sie gerne unverbindlich abklären möchten, ob der Beitritt zur EEG Sinn macht,
++nehmen Sie einfach Kontakt mit uns auf. Wir senden Ihnen das **Datenerhebungsblatt** zu
++und besprechen gemeinsam alle weiteren Schritte. Sie erreichen uns per E-Mail unter
++[eeg.bruck@gmail.com](mailto:eeg.bruck@gmail.com) oder jederzeit telefonisch beim Vorstand.
+ 
+ ### Voraussetzungen für eine Teilnahme
+ 
+@@ -19,9 +17,9 @@ erreichen uns auch jederzeit telefonisch beim Vorstand.
+ 
+ ### So geht's weiter
+ 
+-1. Datenerhebungsblatt anfordern bzw. herunterladen
+-2. Ausgefüllt per E-Mail an uns senden
++1. Kontakt aufnehmen – wir senden Ihnen das Datenerhebungsblatt zu
++2. Ausgefülltes Blatt per E-Mail an uns senden
+ 3. Wir prüfen die Verfügbarkeit an Ihrem Standort
+ 4. Gemeinsame Klärung der nächsten Schritte – kostenlos und unverbindlich
+ 
+-[Datenerhebungsblatt anfordern →](/kontakt)
++[Jetzt Kontakt aufnehmen →](/kontakt)
+diff --git a/themes/eeg-bruck/templates/home.html.twig b/themes/eeg-bruck/templates/home.html.twig
+index 78484eb..d076eb6 100644
+--- a/themes/eeg-bruck/templates/home.html.twig
++++ b/themes/eeg-bruck/templates/home.html.twig
+@@ -45,7 +45,9 @@
+   <div class="section-header"><h2>Unsere Gemeinschaft wächst stetig</h2></div>
+   <div class="stats-grid">
+     {% for s in h.stats %}
+-    <div class="stat-card"><div class="num">{{ s.zahl }}</div><div class="label">{{ s.label }}</div><div class="sub">{{ s.sub }}</div></div>
++    {% set suffix = s.zahl[-1:] in ['+', '%'] ? s.zahl[-1:] : '' %}
++    {% set count  = suffix ? s.zahl[:-1] : s.zahl %}
++    <div class="stat-card"><div class="num" data-count="{{ count }}" data-suffix="{{ suffix }}">{{ s.zahl }}</div><div class="label">{{ s.label }}</div><div class="sub">{{ s.sub }}</div></div>
+     {% endfor %}
+   </div>
+ </div></section>
+diff --git a/themes/eeg-bruck/templates/kontakt.html.twig b/themes/eeg-bruck/templates/kontakt.html.twig
+index ab94b70..dfc1441 100644
+--- a/themes/eeg-bruck/templates/kontakt.html.twig
++++ b/themes/eeg-bruck/templates/kontakt.html.twig
+@@ -23,6 +23,7 @@
+     <div class="kontakt-form-wrap">
+       <h3 style="margin-bottom:1.5rem;">{{ k.abschnitt_formular|default('Nachricht senden') }}</h3>
+       <form method="post" action="{{ page.url }}">
++        <input type="hidden" name="__form-name__" value="contact-form">
+         {{ nonce_field('contact-form')|raw }}
+         <div class="form-group"><label for="name">{{ k.formular.label_name|default('Ihr Name') }} *</label><input type="text" id="name" name="name" required placeholder="{{ k.formular.placeholder_name|default('Max Mustermann') }}"></div>
+         <div class="form-group"><label for="email">{{ k.formular.label_email|default('E-Mail-Adresse') }} *</label><input type="email" id="email" name="email" required placeholder="{{ k.formular.placeholder_email|default('max@beispiel.at') }}"></div>
+diff --git a/themes/eeg-bruck/templates/partials/base.html.twig b/themes/eeg-bruck/templates/partials/base.html.twig
+index 0708cd5..7d2f014 100644
+--- a/themes/eeg-bruck/templates/partials/base.html.twig
++++ b/themes/eeg-bruck/templates/partials/base.html.twig
+@@ -6,6 +6,7 @@
+   <title>{% if page.title and not page.home %}{{ page.title }} – {% endif %}EEG Bruck & Pinzgauer Zentralraum</title>
+   <meta name="description" content="{{ site.metadata.description }}">
+   <meta property="og:title" content="{{ page.title ?: 'EEG Bruck & Pinzgauer Zentralraum' }}">
++  <meta property="og:description" content="{{ site.metadata.description }}">
+   <meta property="og:type" content="website">
+   <link rel="icon" href="{{ url('theme://images/eeg-logo.svg') }}">
+   <link rel="stylesheet" href="{{ url('theme://css/main.css') }}">
+diff --git a/themes/eeg-bruck/templates/partials/footer.html.twig b/themes/eeg-bruck/templates/partials/footer.html.twig
+index 3dc1a6c..b024a14 100644
+--- a/themes/eeg-bruck/templates/partials/footer.html.twig
++++ b/themes/eeg-bruck/templates/partials/footer.html.twig
+@@ -14,6 +14,7 @@
+           <li><a href="{{ base_url_absolute }}/leistungen">Leistungen</a></li>
+           <li><a href="{{ base_url_absolute }}/aktuelle-tarife">Aktuelle Tarife</a></li>
+           <li><a href="{{ base_url_absolute }}/aktuelles">Aktuelles</a></li>
++          <li><a href="{{ base_url_absolute }}/anmelden">Anmelden</a></li>
+           <li><a href="{{ base_url_absolute }}/kontakt">Kontakt</a></li>
+         </ul>
+       </div>
+@@ -27,7 +28,7 @@
+       </div>
+     </div>
+     <div class="footer-bottom">
+-      <span>© 2023–{{ 'now'|date('Y') }} EEG Bruck an der Glocknerstraße und Pinzgauer Zentralraum</span>
++      <span>© 2025–{{ 'now'|date('Y') }} EEG Bruck an der Glocknerstraße und Pinzgauer Zentralraum</span>
+       <span><a href="{{ base_url_absolute }}/impressum">Impressum & Datenschutz</a></span>
+     </div>
+   </div>
+-- 
+2.43.0
+
