@@ -36,6 +36,21 @@ formular:
         - "Sonstiges"
 
 hinweis_netzgebiet: "Die EEG steht allen Personen offen, die im Netzgebiet des Pinzgauer Zentralraums wohnhaft sind und über einen österreichischen Zählpunkt (Netzbetreiber Salzburg Netz) verfügen."
+
+# ── Grav Form Plugin Definition ──
+form:
+    name: contact-form
+    action: /kontakt
+    process:
+        email:
+            subject: "[EEG Bruck] Kontaktanfrage: {{ form.value.betreff }}"
+            body: "<p><strong>Von:</strong> {{ form.value.name }}<br><strong>E-Mail:</strong> {{ form.value.email }}<br><strong>Betreff:</strong> {{ form.value.betreff }}</p><p><strong>Nachricht:</strong><br>{{ form.value.nachricht|nl2br }}</p>"
+            from: eeg.bruck@gmail.com
+            from_name: "EEG Bruck Website"
+            to: eeg.bruck@gmail.com
+            reply_to: "{{ form.value.email }}"
+        message: "Vielen Dank! Wir werden uns so bald wie möglich bei Ihnen melden."
+        reset: true
 ---
 
 Haben Sie Fragen zur Mitgliedschaft, zur Einspeisung oder zu den Tarifen? Schreiben Sie

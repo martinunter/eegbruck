@@ -5,12 +5,10 @@ untertitel: "Unverbindlich abklären, ob ein Beitritt zur EEG für Sie Sinn mach
 
 ## Anmelden leicht gemacht!
 
-Wenn Sie gerne unverbindlich abklären möchten, ob der Beitritt zur EEG Sinn macht, füllen
-Sie unser **Datenerhebungsblatt** aus und übermitteln es per E-Mail an
-[eeg.bruck@gmail.com](mailto:eeg.bruck@gmail.com).
-
-Wir melden uns anschließend bei Ihnen, um alle weiteren Schritte zu besprechen. Sie
-erreichen uns auch jederzeit telefonisch beim Vorstand.
+Wenn Sie gerne unverbindlich abklären möchten, ob der Beitritt zur EEG Sinn macht,
+nehmen Sie einfach Kontakt mit uns auf. Wir senden Ihnen das **Datenerhebungsblatt** zu
+und besprechen gemeinsam alle weiteren Schritte. Sie erreichen uns per E-Mail unter
+[eeg.bruck@gmail.com](mailto:eeg.bruck@gmail.com) oder jederzeit telefonisch beim Vorstand.
 
 ### Voraussetzungen für eine Teilnahme
 
@@ -19,9 +17,9 @@ erreichen uns auch jederzeit telefonisch beim Vorstand.
 
 ### So geht's weiter
 
-1. Datenerhebungsblatt anfordern bzw. herunterladen
-2. Ausgefüllt per E-Mail an uns senden
+1. Kontakt aufnehmen – wir senden Ihnen das Datenerhebungsblatt zu
+2. Ausgefülltes Blatt per E-Mail an uns senden
 3. Wir prüfen die Verfügbarkeit an Ihrem Standort
 4. Gemeinsame Klärung der nächsten Schritte – kostenlos und unverbindlich
 
-[Datenerhebungsblatt anfordern →](/kontakt)
+[Jetzt Kontakt aufnehmen →](/kontakt)

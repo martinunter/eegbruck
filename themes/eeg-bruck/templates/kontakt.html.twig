@@ -23,6 +23,7 @@
     <div class="kontakt-form-wrap">
       <h3 style="margin-bottom:1.5rem;">{{ k.abschnitt_formular|default('Nachricht senden') }}</h3>
       <form method="post" action="{{ page.url }}">
+        <input type="hidden" name="__form-name__" value="contact-form">
         {{ nonce_field('contact-form')|raw }}
         <div class="form-group"><label for="name">{{ k.formular.label_name|default('Ihr Name') }} *</label><input type="text" id="name" name="name" required placeholder="{{ k.formular.placeholder_name|default('Max Mustermann') }}"></div>
         <div class="form-group"><label for="email">{{ k.formular.label_email|default('E-Mail-Adresse') }} *</label><input type="email" id="email" name="email" required placeholder="{{ k.formular.placeholder_email|default('max@beispiel.at') }}"></div>

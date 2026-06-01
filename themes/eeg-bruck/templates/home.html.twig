@@ -45,7 +45,9 @@
   <div class="section-header"><h2>Unsere Gemeinschaft wächst stetig</h2></div>
   <div class="stats-grid">
     {% for s in h.stats %}
-    <div class="stat-card"><div class="num">{{ s.zahl }}</div><div class="label">{{ s.label }}</div><div class="sub">{{ s.sub }}</div></div>
+    {% set suffix = s.zahl[-1:] in ['+', '%'] ? s.zahl[-1:] : '' %}
+    {% set count  = suffix ? s.zahl[:-1] : s.zahl %}
+    <div class="stat-card"><div class="num" data-count="{{ count }}" data-suffix="{{ suffix }}">{{ s.zahl }}</div><div class="label">{{ s.label }}</div><div class="sub">{{ s.sub }}</div></div>
     {% endfor %}
   </div>
 </div></section>
