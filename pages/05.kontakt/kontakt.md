@@ -2,6 +2,13 @@
 title: Kontakt
 untertitel: "Für nähere Infos und Fragen kontaktieren Sie uns gerne telefonisch, per E-Mail oder über das Kontaktformular."
 
+# ── Abschnitts-Überschriften ──
+abschnitt_kontakte: "Ihre Ansprechpartner"
+abschnitt_formular: "Nachricht senden"
+
+# ── Standort-Eintrag ──
+standort: "Bruck an der Glocknerstraße & Pinzgauer Zentralraum, Salzburg"
+
 # ── Ansprechpartner ──
 kontakte:
     - rolle: "Obmann"
@@ -15,6 +22,13 @@ kontakte:
 
 # ── Kontaktformular-Felder ──
 formular:
+    label_name: "Ihr Name"
+    label_email: "E-Mail-Adresse"
+    label_betreff: "Betreff"
+    label_nachricht: "Ihre Nachricht"
+    placeholder_name: "Max Mustermann"
+    placeholder_email: "max@beispiel.at"
+    placeholder_nachricht: "Schreiben Sie uns …"
     betreff_optionen:
         - "Mitgliedschaft / Beitritt"
         - "Einspeisung (PV-Anlage)"
