@@ -11,7 +11,7 @@
     <div class="news-card"><div class="news-card-body">
       <div class="news-date">{{ item.date|date('d.m.Y') }}</div>
       <h3>{{ item.title }}</h3>
-      <p>{{ (item.header.teaser ?: item.summary)|striptags|truncate(160) }}</p>
+      <p>{{ (item.header.teaser ?: item.summary)|striptags|replace({'&hellip;': '', '&nbsp;': ' '})|trim|truncate(160, true, ' …') }}</p>
       <a class="read-more" href="{{ item.url }}">Weiterlesen →</a>
     </div></div>
     {% endfor %}
