@@ -1,0 +1,39 @@
+{% extends 'partials/base.html.twig' %}
+{% block content %}
+{% set k = page.header %}
+<div class="page-hero"><div class="container">
+  <h1>{{ page.title }}</h1>
+  {% if k.untertitel %}<p>{{ k.untertitel }}</p>{% endif %}
+</div></div>
+
+<section class="section" style="padding-top:0;"><div class="container">
+  <div class="kontakt-grid">
+    <div class="kontakt-info">
+      <h3>Ihre Ansprechpartner</h3>
+      {% for c in k.kontakte %}
+        <div class="kontakt-item"><div class="kontakt-icon">👤</div><div><h4>{{ c.rolle }}</h4><p>{{ c.name }}</p></div></div>
+        <div class="kontakt-item"><div class="kontakt-icon">📞</div><div><h4>Telefon</h4><p><a href="tel:{{ c.tel|replace({' ':''}) }}">{{ c.tel }}</a></p></div></div>
+        <div class="kontakt-item"><div class="kontakt-icon">✉️</div><div><h4>E-Mail</h4><p><a href="mailto:{{ c.mail }}">{{ c.mail }}</a></p></div></div>
+      {% endfor %}
+      <div class="kontakt-item"><div class="kontakt-icon">📍</div><div><h4>Region</h4><p>Bruck an der Glocknerstraße & Pinzgauer Zentralraum, Salzburg</p></div></div>
+      {% if k.hinweis_netzgebiet %}
+      <div style="margin-top:2rem;"><p style="font-size:.9rem;color:var(--color-text-muted);"><strong>Hinweis zum Netzgebiet:</strong> {{ k.hinweis_netzgebiet }}</p></div>
+      {% endif %}
+    </div>
+    <div class="kontakt-form-wrap">
+      <h3 style="margin-bottom:1.5rem;">Nachricht senden</h3>
+      <form method="post" action="{{ page.url }}">
+        {{ nonce_field('contact-form')|raw }}
+        <div class="form-group"><label for="name">Ihr Name *</label><input type="text" id="name" name="name" required placeholder="Max Mustermann"></div>
+        <div class="form-group"><label for="email">E-Mail-Adresse *</label><input type="email" id="email" name="email" required placeholder="max@beispiel.at"></div>
+        <div class="form-group"><label for="betreff">Betreff</label>
+          <select id="betreff" name="betreff">{% for o in k.formular.betreff_optionen %}<option>{{ o }}</option>{% endfor %}</select>
+        </div>
+        <div class="form-group"><label for="nachricht">Ihre Nachricht *</label><textarea id="nachricht" name="nachricht" required placeholder="Schreiben Sie uns …"></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;">Formular absenden</button>
+      </form>
+    </div>
+  </div>
+  {% if content %}<div style="max-width:820px;margin:3rem auto 0;color:var(--color-text-muted);">{{ content }}</div>{% endif %}
+</div></section>
+{% endblock %}

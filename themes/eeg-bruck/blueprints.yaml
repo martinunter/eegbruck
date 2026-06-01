@@ -1,0 +1,22 @@
+name: EEG Bruck
+slug: eeg-bruck
+type: theme
+version: 1.0.0
+description: Theme für EEG Bruck Pinzgau
+icon: bolt
+author:
+  name: EEG Bruck
+  email: eeg@eegbruckpinzgau.at
+homepage: https://eegbruckpinzgau.at
+license: MIT
+
+form:
+  validation: loose
+  fields:
+    production_mode:
+      type: toggle
+      label: Production Mode
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED

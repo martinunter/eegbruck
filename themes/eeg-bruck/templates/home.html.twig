@@ -1,0 +1,122 @@
+{% extends 'partials/base.html.twig' %}
+{% block content %}
+{% set h = page.header %}
+
+{# ── HERO ── #}
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <span class="hero-tag">{{ h.hero.tag }}</span>
+        <h1>{{ h.hero.titel }}</h1>
+        <p class="hero-subtitle">{{ h.hero.untertitel }}</p>
+        <div class="hero-ctas">
+          <a href="{{ base_url_absolute }}{{ h.hero.cta_url }}" class="btn btn-white">{{ h.hero.cta_text }}</a>
+          <a href="#leistungen" class="btn btn-outline" style="border-color:rgba(255,255,255,.5);color:#fff;">Mehr erfahren</a>
+        </div>
+        <div class="hero-badges">
+          {% for b in h.hero.badges %}<span class="hero-badge">{{ b }}</span>{% endfor %}
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card">
+          <h3>Unsere Gemeinschaft</h3>
+          <div class="hero-stat-grid">
+            {% for s in h.stats|slice(0,4) %}
+            <div class="hero-stat"><span class="num">{{ s.zahl }}</span><span class="lbl">{{ s.label }}</span></div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="ticker-wrap"><div class="ticker">
+  {% for b in h.hero.badges %}<span>{{ b }}</span>{% endfor %}
+  {% for b in h.hero.badges %}<span>{{ b }}</span>{% endfor %}
+</div></div>
+
+{# ── WILLKOMMEN (Fließtext) ── #}
+<section class="section"><div class="container"><div class="content-section" style="margin-bottom:0;">{{ content }}</div></div></section>
+
+{# ── ZAHLEN ── #}
+<section class="section section-alt"><div class="container">
+  <span class="section-label">Zahlen & Fakten</span>
+  <div class="section-header"><h2>Unsere Gemeinschaft wächst stetig</h2></div>
+  <div class="stats-grid">
+    {% for s in h.stats %}
+    <div class="stat-card"><div class="num">{{ s.zahl }}</div><div class="label">{{ s.label }}</div><div class="sub">{{ s.sub }}</div></div>
+    {% endfor %}
+  </div>
+</div></section>
+
+{# ── WIR UNTERSTÜTZEN SIE ── #}
+<section class="section" id="leistungen"><div class="container">
+  <span class="section-label">Was wir bieten</span>
+  <div class="section-header"><h2>Wir unterstützen Sie</h2></div>
+  <div class="leistungen-grid">
+    {% for c in h.leistungen %}
+    <div class="leistung-card">
+      <div class="leistung-icon">{{ c.icon }}</div>
+      <h3>{{ c.titel }}</h3>
+      <p>{{ c.text }}</p>
+      {% if c.link_url %}<a href="{{ base_url_absolute }}{{ c.link_url }}">{{ c.link_text }} →</a>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div></section>
+
+{# ── SO FUNKTIONIERT'S ── #}
+<section class="section section-alt" id="so-funktionierts"><div class="container">
+  <div class="how-grid">
+    <div>
+      <span class="section-label">Einfach erklärt</span>
+      <h2 style="margin-bottom:2rem;">So funktioniert's</h2>
+      <ul class="how-steps">
+        {% for step in h.schritte %}
+        <li class="how-step"><div class="step-num">{{ loop.index }}</div><div class="step-content"><p>{{ step }}</p></div></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="how-visual">
+      <h4>Ihre Vorteile auf einen Blick</h4>
+      <ul>{% for v in h.vorteile %}<li>{{ v }}</li>{% endfor %}</ul>
+    </div>
+  </div>
+</div></section>
+
+{# ── FAQ ── #}
+<section class="section" id="faq"><div class="container">
+  <div class="section-header"><span class="section-label">Häufige Fragen</span><h2>Häufig gestellte Fragen</h2></div>
+  <div class="faq-list">
+    {% for f in h.faq %}
+    <div class="faq-item">
+      <button class="faq-question">{{ f.frage }}<span class="faq-icon">+</span></button>
+      <div class="faq-answer">{{ f.antwort }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div></section>
+
+{# ── TEAM ── #}
+<section class="section section-alt" id="team"><div class="container">
+  <div class="section-header"><span class="section-label">Vorstand</span><h2>Unser Team</h2></div>
+  <div class="team-grid">
+    {% for p in h.team %}
+    <div class="team-card">
+      <div class="team-avatar">{{ p.name|split(' ')|last|slice(0,1)|upper }}{{ p.name|split(' ')|first|slice(0,1)|upper }}</div>
+      <h4>{{ p.name }}</h4>
+      <p class="role">{{ p.rolle }}</p>
+      {% if p.tel %}<p class="tel"><a href="tel:{{ p.tel|replace({' ':''}) }}">{{ p.tel }}</a></p>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div></section>
+
+{# ── ABSCHLUSS-CTA ── #}
+<section class="cta-section"><div class="container">
+  <h2>{{ h.cta.titel }}</h2>
+  <p>{{ h.cta.text }}</p>
+  <div><a href="{{ base_url_absolute }}{{ h.cta.button_url }}" class="btn btn-white">{{ h.cta.button_text }}</a></div>
+</div></section>
+{% endblock %}

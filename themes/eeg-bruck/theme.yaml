@@ -1,0 +1,14 @@
+name: EEG Bruck
+version: 1.0.0
+description: Theme für die EEG Bruck an der Glocknerstraße und Pinzgauer Zentralraum
+icon: bolt
+author:
+  name: EEG Bruck
+  email: eeg@eegbruckpinzgau.at
+homepage: https://eegbruckpinzgau.at
+keywords: eeg, energie, community, theme
+bugs: ~
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.7.0' }

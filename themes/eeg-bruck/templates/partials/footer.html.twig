@@ -1,0 +1,34 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="{{ url('theme://images/eeg-logo.svg') }}" alt="EEG Bruck Logo" width="32" height="32">
+          EEG Bruck
+        </div>
+        <p>Die Erneuerbare-Energie-Gemeinschaft für Bruck an der Glocknerstraße und den Pinzgauer Zentralraum. Nachhaltig, regional, fair.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="{{ base_url_absolute }}/leistungen">Leistungen</a></li>
+          <li><a href="{{ base_url_absolute }}/aktuelle-tarife">Aktuelle Tarife</a></li>
+          <li><a href="{{ base_url_absolute }}/aktuelles">Aktuelles</a></li>
+          <li><a href="{{ base_url_absolute }}/kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+436641600535">DI Johann Gratz: 0664 160 05 35</a></li>
+          <li><a href="mailto:eeg.bruck@gmail.com">eeg.bruck@gmail.com</a></li>
+          <li><a href="{{ base_url_absolute }}/impressum">Impressum & Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2023–{{ 'now'|date('Y') }} EEG Bruck an der Glocknerstraße und Pinzgauer Zentralraum</span>
+      <span><a href="{{ base_url_absolute }}/impressum">Impressum & Datenschutz</a></span>
+    </div>
+  </div>
+</footer>

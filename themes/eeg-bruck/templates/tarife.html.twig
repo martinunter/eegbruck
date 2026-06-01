@@ -1,0 +1,22 @@
+{% extends 'partials/base.html.twig' %}
+{% block content %}
+{% set t = page.header.tarife %}
+<div class="page-hero"><div class="container">
+  <h1>{{ page.title }}</h1>
+  {% if page.header.untertitel %}<p>{{ page.header.untertitel }}</p>{% endif %}
+</div></div>
+
+<section class="section" style="padding-top:0;"><div class="container">
+  <div class="tarife-table-wrap">
+    <table>
+      <thead><tr>{% for col in t.spalten %}<th>{{ col }}</th>{% endfor %}</tr></thead>
+      <tbody>
+        {% for row in t.zeilen %}<tr>{% for cell in row %}<td>{{ cell }}</td>{% endfor %}</tr>{% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% if t.hinweis %}<p class="tarife-note">{{ t.hinweis }}</p>{% endif %}
+</div></section>
+
+<div class="content-section">{{ content }}</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title and not page.home %}{{ page.title }} – {% endif %}EEG Bruck & Pinzgauer Zentralraum</title>
+  <meta name="description" content="{{ site.metadata.description }}">
+  <meta property="og:title" content="{{ page.title ?: 'EEG Bruck & Pinzgauer Zentralraum' }}">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="{{ url('theme://images/eeg-logo.svg') }}">
+  <link rel="stylesheet" href="{{ url('theme://css/main.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+{% include 'partials/header.html.twig' %}
+{% block content %}{% endblock %}
+{% include 'partials/footer.html.twig' %}
+<script src="{{ url('theme://js/main.js') }}"></script>
+</body>
+</html>
