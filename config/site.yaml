@@ -1,7 +1,8 @@
-title: Grav
+title: "EEG Bruck & Pinzgauer Zentralraum"
+default_lang: de
 author:
-  name: Joe Bloggs
-  email: 'joe@example.com'
+    name: "EEG Bruck an der Glocknerstraße und Pinzgauer Zentralraum"
+    email: ""
 metadata:
-    description: 'Grav is an easy to use, yet powerful, open source flat-file CMS'
-
+    description: "Die Erneuerbare-Energie-Gemeinschaft für Bruck an der Glocknerstraße und den Pinzgauer Zentralraum. Regionaler Ökostrom, faire Preise, keine Bindung."
+    keywords: "EEG, Energiegemeinschaft, Bruck, Pinzgau, Salzburg, erneuerbare Energie, Photovoltaik, Ökostrom"
