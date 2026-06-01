@@ -1,0 +1,35 @@
+enabled: true
+folders:
+  - pages
+  - themes
+  - plugins
+  - config
+sync:
+  direction: both
+  on_save: true
+  on_delete: true
+  on_media: true
+  cron_enable: false
+  cron_at: '0 12,23 * * *'
+SyncNotice: null
+local_repository: null
+repository: 'https://github.com/martinunter/eegbruck.git'
+no_user: '0'
+user: martinunter
+password: gitsync-def50200fc63aa125ebb8fa254dafe68b08f2d7971e941dfeb65310a16bcb6bc6b85ac3caaa9ade5334658eda8d80eabf3eb23cb2000eb70011b837272e579a442598b0cb27d6aea20022b70b049803c7b211c61e508b71f36a68f9e7e55de7de9fbcd4bf456818d1f5c39d033ead2083b5975ba85c43b498e62d642007a63073835d6c893aee423bb18e75ef765ecc836a1e31d04e2d38634702fbc87db662bb8b29e078a3d01753b5bdaa89638c6f7c9
+webhook: /_git-sync-6f8822f64d1a
+webhook_enabled: '1'
+webhook_secret: bf06fb159cc908193eebe6915b16e50e24aaa0f73ef9be4c
+branch: main
+remote:
+  name: origin
+  branch: main
+git:
+  author: gituser
+  message: '(Grav GitSync) Automatic Commit'
+  name: GitSync
+  email: noreply@unterhofer.at
+  bin: git
+  ignore: null
+  private_key: null
+logging: false
