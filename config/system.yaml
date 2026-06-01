@@ -9,3 +9,5 @@ languages:
         - de
 cache:
     enabled: true
+twig:
+    autoescape: false
