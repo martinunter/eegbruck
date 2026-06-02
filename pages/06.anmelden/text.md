@@ -8,7 +8,7 @@ untertitel: "Unverbindlich abklären, ob ein Beitritt zur EEG für Sie Sinn mach
 Wenn Sie gerne unverbindlich abklären möchten, ob der Beitritt zur EEG Sinn macht,
 nehmen Sie einfach Kontakt mit uns auf. Wir senden Ihnen das **Datenerhebungsblatt** zu
 und besprechen gemeinsam alle weiteren Schritte. Sie erreichen uns per E-Mail unter
-[eeg.bruck@gmail.com](mailto:eeg.bruck@gmail.com) oder jederzeit telefonisch beim Vorstand.
+[info@eegbruckpinzgau.at](mailto:info@eegbruckpinzgau.at) oder jederzeit telefonisch beim Vorstand.
 
 ### Voraussetzungen für eine Teilnahme
 

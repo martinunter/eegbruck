@@ -11,7 +11,7 @@ Bruck an der Glocknerstraße, Salzburg, Österreich
 
 **Obmann:** DI Johann Gratz
 **Telefon:** +43 664 160 05 35
-**E-Mail:** eeg.bruck@gmail.com
+**E-Mail:** info@eegbruckpinzgau.at
 
 > _Bitte vor Veröffentlichung ergänzen:_ ZVR-Zahl des Vereins, ladungsfähige Anschrift,
 > ggf. UID-Nummer.
@@ -28,6 +28,6 @@ dieser Website nur im technisch notwendigen Umfang erhoben.
 - Sie haben jederzeit das Recht auf Auskunft, Berichtigung und Löschung Ihrer Daten.
 
 Bei Fragen zum Datenschutz wenden Sie sich bitte an den Vorstand unter
-[eeg.bruck@gmail.com](mailto:eeg.bruck@gmail.com).
+[info@eegbruckpinzgau.at](mailto:info@eegbruckpinzgau.at).
 
 > _Vor Live-Gang durch eine vollständige, rechtlich geprüfte Datenschutzerklärung ersetzen._

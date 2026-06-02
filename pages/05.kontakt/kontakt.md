@@ -14,7 +14,7 @@ kontakte:
     - rolle: "Obmann"
       name: "DI Johann Gratz"
       tel: "+43 664 160 05 35"
-      mail: "eeg.bruck@gmail.com"
+      mail: "info@eegbruckpinzgau.at"
     - rolle: "Kassier"
       name: "Stefan Hörbiger"
       tel: "+43 676 868 71 747"
@@ -45,9 +45,9 @@ form:
         email:
             subject: "[EEG Bruck] Kontaktanfrage: {{ form.value.betreff }}"
             body: "<p><strong>Von:</strong> {{ form.value.name }}<br><strong>E-Mail:</strong> {{ form.value.email }}<br><strong>Betreff:</strong> {{ form.value.betreff }}</p><p><strong>Nachricht:</strong><br>{{ form.value.nachricht|nl2br }}</p>"
-            from: eeg.bruck@gmail.com
+            from: info@eegbruckpinzgau.at
             from_name: "EEG Bruck Website"
-            to: eeg.bruck@gmail.com
+            to: info@eegbruckpinzgau.at
             reply_to: "{{ form.value.email }}"
         message: "Vielen Dank! Wir werden uns so bald wie möglich bei Ihnen melden."
         reset: true
